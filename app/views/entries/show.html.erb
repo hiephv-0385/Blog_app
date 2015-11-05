@@ -1,0 +1,15 @@
+<% provide(:title, @entry.title) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="entry_info">
+      <h1>
+        <%= link_to @entry.title, '#' %>
+      </h1>
+      <p><%= @entry.body %></p>
+      <% if @entry.user %>
+        <p class="post_user"><%= @entry.user.name %></p>
+      <% end %>
+      <span>Post date: <%= @entry.created_date.strftime(' %d-%m-%Y %H:%M:%S') %></span>
+    </section>
+  </aside>
+</div>

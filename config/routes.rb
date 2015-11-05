@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'books/new'
+
+  get 'books/create'
+
+  get 'persons/new'
+
+  get 'persons/create'
+
+  get 'entries/new'
+
+  get 'entries/index'
+
+  get 'entries/create'
+
+  get 'entries/edit'
+
   get 'sessions/new'
 
   root 'static_pages#home'
@@ -16,6 +32,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
+  resources :entries
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

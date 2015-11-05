@@ -1,0 +1,15 @@
+<% if entries.any? %>
+    <h3>Entries (<%= entries.count %>)</h3>
+    <ul class="entries">
+      <% entries.each do |entry| %>
+      	<li>
+		  <%= link_to entry.title, entry_path(entry.id) %>
+      <% if entry.user %>
+		    <p><%= entry.user.name %></p>
+      <% end %>
+		  <span>Post date: <%= entry.created_date.strftime(' %d-%m-%Y %H:%M:%S') %></span>
+		</li>
+      <% end %>
+    </ul>
+    <%= will_paginate entries %>
+<% end %>
