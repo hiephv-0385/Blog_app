@@ -1,0 +1,12 @@
+<h1>Create new comment</h1>
+
+<div class="col-md-6 comment-form">
+	<%= form_for(@new_comment) do |f| %>
+	  <%= render 'shared/error_messages', object: f.object %>
+	  <%= f.hidden_field :entry_id %>
+	  <%= f.label :content %>
+	  <%= f.text_area :content, size: "10x6", class: 'form-control', required: true %>
+
+	  <%= f.submit "Post", class: "btn btn-primary" %>
+	<% end %>
+</div>

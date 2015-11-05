@@ -2,4 +2,5 @@
   <%= link_to entry.title, entry_path %>
   <p><%= entry.user.name %></p>
   <span>Post date: <%= entry.created_date %></span>
+  <%= current_user.name %>
 </li>

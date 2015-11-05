@@ -1,9 +1,12 @@
 class Entry < ActiveRecord::Base
 
 	belongs_to :user
+	has_many :comments, dependent: :destroy
+
 	default_scope -> { order(created_date: :desc) }
 
+
 	validates :title,  presence: true, length: { maximum: 150 }
-	validates :body,  presence: true, length: { maximum: 200 }
+	validates :body,  presence: true, length: { maximum: 400 }
 
 end

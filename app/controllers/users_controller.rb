@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   before_action :logged_in_user, only: [:index, :edit, :show, :update, :destroy]
 
   def new
@@ -65,4 +66,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
   end
+  
 end

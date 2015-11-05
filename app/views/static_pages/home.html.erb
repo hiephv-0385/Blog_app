@@ -1,4 +1,7 @@
 <h1>Blog app</h1>
 <div class="col-md-8">
-	<%= render 'shared/feed', entries: @entries %>
+	<% if @entries.any? %>
+      <h3>All entries (<%= @entries.count %>)</h3>
+	  <%= render 'shared/feed', entries: @entries %>
+	<% end %>
 </div>

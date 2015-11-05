@@ -7,9 +7,9 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control' %>
+      <%= f.text_field :title, class: 'form-control', required: true %>
       <%= f.label :body %>
-      <%= f.text_area :body, size: "10x6", class: 'form-control' %>
+      <%= f.text_area :body, size: "10x6", class: 'form-control', required: true %>
 
       <%= f.submit "Create entry", class: "btn btn-primary" %>
     <% end %>

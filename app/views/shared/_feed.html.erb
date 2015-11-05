@@ -1,15 +1,20 @@
-<% if entries.any? %>
-    <h3>Entries (<%= entries.count %>)</h3>
-    <ul class="entries">
-      <% entries.each do |entry| %>
-      	<li>
+<ul class="entries">
+  <% entries.each do |entry| %>
+  	<li>
 		  <%= link_to entry.title, entry_path(entry.id) %>
+      (Comments: <%= entry.comments.count %>)
+      <% if current_user?(entry.user) %>
+        <%= link_to ('<i title="Edit" class="glyphicon glyphicon-edit"></i>').html_safe, edit_entry_path(entry.id)  %>
+
+        <%= link_to ('<i title="Delete" class="glyphicon glyphicon-trash"></i>').html_safe, entry, 
+          method: :delete,
+          data: { confirm: "You sure?" }%>
+      <% end %>
       <% if entry.user %>
 		    <p><%= entry.user.name %></p>
       <% end %>
 		  <span>Post date: <%= entry.created_date.strftime(' %d-%m-%Y %H:%M:%S') %></span>
-		</li>
-      <% end %>
-    </ul>
-    <%= will_paginate entries %>
-<% end %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate entries %>

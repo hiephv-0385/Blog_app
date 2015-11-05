@@ -1,11 +1,5 @@
-
 <% provide(:title, 'All entries') %>
-<h1>All entries</h1>
-
-<%= will_paginate %>
-<ul class="entries">
-  <% @entries.each do |entry| %>
-  	<%= render entry %>
-  <% end %>
-</ul>
-<%= will_paginate %>
+<% if @entries.any? %>
+  <h3>All entries (<%= @entries.count %>)</h3>
+  <%= render 'shared/feed', entries: @entries %>
+<% end %>

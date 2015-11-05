@@ -296,3 +296,37 @@ span.picture {
     font-weight: bold;
   }
 }
+
+.comment_section{
+  .comment-form{
+    padding-left: 0;
+  }
+}
+
+.comment_list{
+  padding: 0;
+  ul{
+    list-style-type: none;
+    padding-left: 10px;
+  }
+
+  li{
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #ccc;
+  }
+  p{
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  span{
+    font-style: italic;
+    color: #444;
+    font-size: 0.9em
+  }
+  div{
+    padding-bottom: 5px;
+  }
+}

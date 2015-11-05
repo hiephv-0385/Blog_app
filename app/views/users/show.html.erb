@@ -13,6 +13,9 @@
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
-    <%= render 'shared/feed', entries: @entries %>
+    <% if @entries.any? %>
+      <h3>My entries feed (<%= @entries.count %>)</h3>
+      <%= render 'shared/feed', entries: @entries %>
+    <% end %>
   </div>
 </div>

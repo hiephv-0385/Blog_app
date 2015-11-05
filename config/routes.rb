@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+
   get 'relationships/create'
 
   get 'relationships/destroy'
@@ -40,6 +42,8 @@ Rails.application.routes.draw do
   resources :entries
 
   resources :relationships,       only: [:create, :destroy]
+
+  resources :comments,       only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
