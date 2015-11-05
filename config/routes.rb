@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
   get 'books/new'
 
   get 'books/create'
@@ -34,6 +38,8 @@ Rails.application.routes.draw do
   end
 
   resources :entries
+
+  resources :relationships,       only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
