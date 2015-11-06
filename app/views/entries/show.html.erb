@@ -9,7 +9,7 @@
       <% if @entry.user %>
         <p class="post_user"><%= @entry.user.name %></p>
       <% end %>
-      <span>Post date: <%= @entry.created_date.strftime(' %d-%m-%Y %H:%M:%S') %></span>
+      <span>Post date: <%= @entry.created_at.strftime(' %d-%m-%Y %H:%M:%S') %></span>
     </section>
     <section class="comment_section">
       <%= render 'shared/comment', comments: @comments %>

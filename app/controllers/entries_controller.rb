@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
   before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
 
   def new
-  	@entry = Entry.new
+    @entry = Entry.new
   end
 
   def index
@@ -12,7 +12,6 @@ class EntriesController < ApplicationController
 
   def create
     @entry = current_user.entries.build(entry_params)
-  	@entry.created_date = Time.now
   	if @entry.save
       flash[:success] = "Entry created"
       redirect_to current_user
@@ -24,7 +23,7 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @comments = @entry.comments.paginate(page: params[:page])
-    @commentable = commentable?
+    @commentable = has_comment_right?
     if current_user
       @new_comment = Comment.new
       @new_comment.entry_id = @entry.id
@@ -56,17 +55,17 @@ class EntriesController < ApplicationController
 
   private
 
-  def commentable?
-    return current_user && @entry.user && 
+  def has_comment_right?
+    current_user && @entry.user && 
             (current_user == @entry.user || current_user.following?(@entry.user))
   end
 
   def entry_params
-      params.require(:entry).permit(:title, :body)
+    params.require(:entry).permit(:title, :body)
   end
 
   def comment_params
-      params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content)
   end
 
 end

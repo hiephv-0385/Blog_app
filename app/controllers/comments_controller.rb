@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :logged_in_user, only: [:create]
 
   def create
-  	@comment = Comment.new(comment_params)
+    @comment = Comment.new(comment_params)
   	@comment.user_id = current_user.id
     if @comment.save
       entry = Entry.find(comment_params[:entry_id])
@@ -18,6 +18,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-      params.require(:comment).permit(:content, :entry_id)
+    params.require(:comment).permit(:content, :entry_id)
   end
 end
