@@ -27,7 +27,7 @@ users = User.order(:created_at).take(6)
   title = Faker::Lorem.sentence(5)
   body = Faker::Lorem.sentence(5)
   created_date = Time.now
-  users.each { |user| user.entries.create!(title: title, body: body, created_date: created_date) }
+  users.each { |user| user.entries.create!(title: title, body: body) }
 end
 
 # Following relationships
